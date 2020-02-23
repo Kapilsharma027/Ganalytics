@@ -8,19 +8,20 @@ import { Http , Response } from '@angular/http';
 })
 export class ThirdComponent implements OnInit , AfterViewInit {
   ngAfterViewInit(): void {
-    (<any>window).ga('send', {
-      'hitType': 'event',
-      'timingCategory': 'thirdcategory',
-      'timingVar': 'thirdlookup',
-      'timingValue': 30000 ,
-      'timingLabel': 'thirdstimelabel'
-    });
+    console.log("third page loaded");
+    // (<any>window).ga('send', {
+    //   'hitType': 'event',
+    //   'timingCategory': 'thirdcategory',
+    //   'timingVar': 'thirdlookup',
+    //   'timingValue': 300000 ,
+    //   'timingLabel': 'thirdstimelabel'
+    // });
   }
   imageSearch: any;
   constructor(private http: Http) { }
 
   ngOnInit(): void {
-    const urlofApi= 'https://api.github.com/search/repositories?q=second';
+    const urlofApi= 'https://api.github.com/search/repositories?q=third';
     this.http.get(urlofApi)
     .subscribe(
       (res: Response) => 

@@ -8,22 +8,28 @@ import { SecondComponent } from './second/second.component';
 import { ThirdComponent } from './third/third.component';
 import { RouterModule } from '@angular/router';
 import { HttpModule } from '@angular/http';
+import { FourComponent } from './four/four.component';
+import { FiveComponent } from './five/five.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     FirstComponent,
     SecondComponent,
-    ThirdComponent
+    ThirdComponent,
+    FourComponent,
+    FiveComponent
   ],
   imports: [
     BrowserModule,
     HttpModule, 
     AppRoutingModule,
     RouterModule.forRoot([
-      { path: 'first', component: FirstComponent },
-      { path: 'second', component: SecondComponent },
-      { path: 'third', component: ThirdComponent }
+      { path: 'six', component: FirstComponent },
+      { path: 'seven', component: SecondComponent },
+      { path: 'third', component: ThirdComponent },
+      { path: 'four', component: FourComponent },
+      { path: 'five', component: FiveComponent }
     ])
   ],
   providers: [],

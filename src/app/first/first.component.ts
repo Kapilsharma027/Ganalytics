@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit, AfterViewChecked } from '@angular/core';
 
 import { Http , Response } from '@angular/http';
 
@@ -8,14 +8,19 @@ import { Http , Response } from '@angular/http';
   styleUrls: ['./first.component.scss']
 })
 export class FirstComponent implements OnInit, AfterViewInit {
+ 
+
   ngAfterViewInit(): void {
-    (<any>window).ga('send', {
-      'hitType': 'event',
-      'timingCategory': 'firstcategory',
-      'timingVar': 'firstlookup',
-      'timingValue': 10000 ,
-      'timingLabel': 'firtstimelabel'
-    });
+
+    console.log("first loaded view checked");
+// console.log("first page loaded");
+    // (<any>window).ga('send', {
+    //   'hitType': 'event',
+    //   'timingCategory': 'firstcategory',
+    //   'timingVar': 'firstlookup',
+    //   'timingValue': 100000 ,
+    //   'timingLabel': 'firtstimelabel'
+    // });
   }
   imageSearch: any;
   constructor(private http: Http) { }

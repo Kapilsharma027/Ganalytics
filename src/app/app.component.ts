@@ -1,4 +1,4 @@
-import { Component, Inject } from '@angular/core';
+import { Component, Inject, AfterViewChecked, AfterViewInit } from '@angular/core';
 
 import {DOCUMENT, PlatformLocation} from '@angular/common';
 import { Router, NavigationEnd } from '@angular/router';
@@ -7,7 +7,13 @@ import { Router, NavigationEnd } from '@angular/router';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent  {
+  // ngAfterViewChecked(): void {
+  //   console.log("parentent loaded view checked");
+  // }
+  // ngAfterViewInit(): void {
+  //   console.log("parentent loaded");
+  // }
   title = 'demo2';
   constructor( @Inject(DOCUMENT) private doc: any,
   private router: Router){
@@ -18,7 +24,13 @@ export class AppComponent {
         const urlList = event.urlAfterRedirects.split('?');
           (<any>window).ga('set', 'page', urlList[0]);
           (<any>window).ga('send', 'pageview');
-       
+          (<any>window).ga('send', {
+            'hitType': 'event',
+            'timingCategory': 'firstcategory',
+            'timingVar': 'firstlookup',
+            'timingValue': 4000 ,
+            'timingLabel': 'firtstimelabel'
+          });
       }
     });
   }
@@ -38,7 +50,7 @@ export class AppComponent {
       m.parentNode.insertBefore(a, m)
      })(window, document, 'script', 'https://www.google-analytics.com/analytics_debug.js', 'ga');
 
-   ga('create','UA-141934315-1', 'auto')`;
+   ga('create','UA-141934315-1',  {'siteSpeedSampleRate': 100})`;
     const head = this.doc.getElementsByTagName('head')[0];
     head.appendChild(s);
   }

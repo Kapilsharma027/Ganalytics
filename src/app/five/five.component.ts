@@ -2,26 +2,27 @@ import { Component, OnInit, AfterViewInit } from '@angular/core';
 
 import { Http , Response } from '@angular/http';
 @Component({
-  selector: 'app-second',
-  templateUrl: './second.component.html',
-  styleUrls: ['./second.component.scss']
+  selector: 'app-five',
+  templateUrl: './five.component.html',
+  styleUrls: ['./five.component.scss']
 })
-export class SecondComponent implements OnInit, AfterViewInit {
+export class FiveComponent implements AfterViewInit {
+
+
   ngAfterViewInit(): void {
-    console.log("second page loaded");
     // (<any>window).ga('send', {
     //   'hitType': 'event',
-    //   'timingCategory': 'secondcategory',
-    //   'timingVar': 'secondlookup',
-    //   'timingValue': 5600 ,
-    //   'timingLabel': 'secondtimelabel'
+    //   'timingCategory': 'firstcategory',
+    //   'timingVar': 'firstlookup',
+    //   'timingValue': 5000 ,
+    //   'timingLabel': 'firtstimelabel'
     // });
   }
   imageSearch: any;
   constructor(private http: Http) { }
 
   ngOnInit(): void {
-    const urlofApi= 'https://api.github.com/search/repositories?q=second';
+    const urlofApi= 'https://api.github.com/search/repositories?q=five';
     this.http.get(urlofApi)
     .subscribe(
       (res: Response) => 
